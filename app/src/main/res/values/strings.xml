@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Nisaidie</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_verification">VerificationActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_description">DescriptionActivity</string>
+    <string name="title_activity_nextofkin">NextofkinActivity</string>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="Username">user name</string>
+    <string name="Email">Email</string>
+
+
+    <string name="slide_1_title">Panic button!</string>
+    <string name="slide_1_desc">you can press the panic button to alert your emergency contacts</string>
+
+    <string name="slide_2_title">Next of Kin</string>
+    <string name="slide_2_desc">You can add the contacts of your next of kin!</string>
+
+    <string name="slide_3_title">Cloud availability</string>
+    <string name="slide_3_desc">Your recordings are safely uploaded to the cloud and can be available to you later!</string>
+
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+</resources>

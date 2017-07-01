@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center"
+	android:background="#fff"
+	android:padding="10dp"
+	android:orientation="vertical"
+	android:weightSum="1">
+
+	<TextView
+		android:id="@+id/login_title"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="16dp"
+		android:gravity="center_horizontal"
+		android:text="Account Details"
+		android:textColor="#000"
+		android:textSize="26sp"
+		android:textStyle="bold" />
+
+	<ImageView
+		android:id="@+id/profilePic"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+        android:src="@drawable/ic_account_circle_black_24dp"
+		android:layout_weight="0.20" />
+
+    <Button
+        android:id="@+id/btnSelectPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Profile Photo" />
+
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingTop="20dp">
+
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<EditText
+				android:id="@+id/et_username"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textColor="@android:color/black"
+				android:backgroundTint="#d9dede"
+				android:drawableLeft="@drawable/ic_people_black_24dp"
+				android:drawableTint="#bdbfbf"
+				android:textColorHint="@color/bg_screen1"
+				android:hint="@string/Username"
+				android:inputType="textEmailAddress"
+				android:singleLine="true" />
+		</android.support.design.widget.TextInputLayout>
+
+
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<EditText
+				android:id="@+id/et_mail"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textColor="@android:color/black"
+				android:backgroundTint="#d9dede"
+				android:drawableLeft="@drawable/ic_email_black_24dp"
+				android:drawableTint="#bdbfbf"
+				android:textColorHint="@color/bg_screen1"
+				android:hint="@string/Email"
+				android:inputType="textEmailAddress"
+				android:maxLines="1" />
+		</android.support.design.widget.TextInputLayout>
+
+
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<EditText
+				android:id="@+id/et_email"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:backgroundTint="#d9dede"
+				android:layout_marginTop="16dp"
+				android:textColorHint="@color/bg_screen1"
+				android:singleLine="true"
+				android:textColor="@android:color/black"
+				android:inputType="phone"
+				android:drawableTint="#bdbfbf"
+				android:drawableLeft="@drawable/ic_phone_black_24dp"
+				android:hint="Phone Number" />
+		</android.support.design.widget.TextInputLayout>
+
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="20dp">
+
+
+
+		</android.support.design.widget.TextInputLayout>
+
+		<Button
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="7dp"
+		android:background="@color/colorPrimary"
+		android:text="Update"
+		android:id="@+id/bt_go"
+		android:onClick="enter"
+		android:textAllCaps="false"
+		android:textColor="#fff"
+		android:textSize="18sp" />
+
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffebee"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.nisaidie.nisaidie1.activity.SplashActivity"
+    tools:showIn="@layout/activity_splash">
+
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_polymer_black_24dp"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="207dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nisaidie"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="320dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="119dp"
+        android:layout_height="18dp"
+        android:text="www.nisaidie.com"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="477dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
