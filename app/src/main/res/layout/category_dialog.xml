@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- Header -->
+
+    <LinearLayout
+        android:id="@+id/headerView"
+        android:layout_width="fill_parent"
+        android:background="#ede4e4"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="62dp"
+            android:text="Select  Category"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <!-- MIDDLE COMPONENT: all our GUI content -->
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#e1aeae"
+        android:orientation="vertical" >
+
+
+
+            <ListView
+                android:id="@+id/category_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></ListView>
+
+            <ProgressBar
+                android:id="@+id/empty_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:indeterminate="false" />
+
+
+
+    </LinearLayout>
+
+
+
+
+    <!-- footer -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#f1eaea"
+         >
+
+
+        <Button
+            android:id="@+id/cancel_button_main_category"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f1eaea"
+            android:text="CANCEL"
+            android:textColor="#8ab800"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="20dp" />
+    </RelativeLayout>
+
+</LinearLayout>
