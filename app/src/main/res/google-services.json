@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "321587843423",
+    "firebase_url": "https://nisaidieapp-73ade.firebaseio.com",
+    "project_id": "nisaidieapp-73ade",
+    "storage_bucket": "nisaidieapp-73ade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321587843423:android:c3138b0bc5876ce3",
+        "android_client_info": {
+          "package_name": "com.nisaidie.nisaidie1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321587843423-e1393fakhljnin6nk3keto0bc5c301po.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nisaidie.nisaidie1",
+            "certificate_hash": "6f90c3ae4bb292487d870ad31e74849ba3a0ff86"
+          }
+        },
+        {
+          "client_id": "321587843423-v82im1ne9m2ifuandq4dfl267udfr9sl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUbESiuQHO7PfVovcy6Zpc-XrYKmiRkeU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321587843423-v82im1ne9m2ifuandq4dfl267udfr9sl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
