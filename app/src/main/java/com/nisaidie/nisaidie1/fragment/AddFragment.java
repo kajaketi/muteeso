@@ -1,30 +1,62 @@
 package com.nisaidie.nisaidie1.fragment;
 
-import android.app.Fragment;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.nisaidie.nisaidie1.R;
+import com.nisaidie.nisaidie1.databinding.EmergencyMainBinding;
 
-import static android.content.Context.MODE_PRIVATE;
 
-public class AddFragment extends Fragment{
+public class AddFragment extends Fragment implements View.OnClickListener{
+
+    private static final String TAG = "EmergencyActivity";
+    private EmergencyMainBinding binding;
 
     @Nullable
     @Override
+   // protected void onCreate(Bundle savedInstanceState){
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.add_fragment, container, false);
+        binding = DataBindingUtil.setContentView(getActivity(), R.layout.emergency_main);
+        // /View view = inflater.inflate(R.layout.emergency_main, container, false);
 
-        return view;
+        binding.emView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               Fragment fragment = null;
+                fragment = new AccountFragment();
+               // FragmentManager manager = getSupportFragmentManager();
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                //transaction.show(fragment);
+                transaction.replace(R.id.emmain, fragment);
+                transaction.commit();
+                //startActivity(new Intent(getActivity(), com.nisaidie.nisaidie1.fragment.AccountFragment.class));
+            }
+        });
+
+
+        binding.emAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().startActivity(new Intent(getActivity(), com.nisaidie.nisaidie1.activity.EmergencyContacts.class));
+            }
+        });
+        return getView();
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
+

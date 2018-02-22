@@ -5,6 +5,8 @@ import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ public class CardAnimator {
 
 
     //passing list of cardStack view to mCardCollection. and jumping to setup method
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public CardAnimator(ArrayList<View> viewCollection) {
         mCardCollection = viewCollection;
         setup();
@@ -36,6 +39,7 @@ public class CardAnimator {
 
 
     //calling to setup the each card based on view
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void setup() {
         mLayoutsMap = new HashMap<>();
 
@@ -70,6 +74,7 @@ public class CardAnimator {
     *  and setting card scale size to give curve shape to card
     *  and moving card toward top of others card, and gives look of stack.
     * */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void initLayout() {
         int size = mCardCollection.size();
         for (View v : mCardCollection) {
@@ -139,6 +144,7 @@ public class CardAnimator {
     }
 
     //using to set the discard animation of CardStack into ArrayList<Animator>
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void discard(int direction, final AnimatorListener al) {
         AnimatorSet as = new AnimatorSet();
         ArrayList<Animator> aCollection = new ArrayList<>();
@@ -180,6 +186,7 @@ public class CardAnimator {
         as.addListener(new AnimatorListenerAdapter() {
 
 
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onAnimationEnd(Animator animation) {
                 reorder();
@@ -209,6 +216,7 @@ public class CardAnimator {
     //this method will give the animation of reverse along with the reverse animation duration
     // time in ms... which is I defined as 250
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void reverse(MotionEvent e1, MotionEvent e2) {
         final View topView = getTopView();
         ValueAnimator rotationAnim = ValueAnimator.ofFloat(mRotation, 0f);
@@ -272,6 +280,7 @@ public class CardAnimator {
     }
 
     //using to set the margin into cardStack
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void setStackMargin(int margin) {
         mStackMargin = margin;//passing the value to mStackMargin
         initLayout(); //and then calling this method to set the margin into view.

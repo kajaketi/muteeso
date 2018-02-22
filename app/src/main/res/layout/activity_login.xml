@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -10,15 +11,18 @@
         android:layout_height="wrap_content"
         android:paddingTop="56dp"
         android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingRight="24dp"
+        android:layout_gravity="center">
 
-        <ImageView android:src="@drawable/ic1_polymer_black_24dp"
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header"
+            android:foregroundGravity="center"/>
 
-        <!-- Email Label -->
+        <!-- Phone number Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,8 +36,6 @@
                 android:hint="Phone Number" />
         </android.support.design.widget.TextInputLayout>
 
-
-
         <Button
             android:id="@+id/btn_login"
             android:layout_width="fill_parent"
@@ -42,6 +44,12 @@
             android:layout_marginBottom="24dp"
             android:padding="12dp"
             android:text="Login"/>
+
+        <ImageView android:src="@drawable/nisaidie"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
 
 
 

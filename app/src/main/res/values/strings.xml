@@ -7,6 +7,13 @@
     <string name="title_activity_description">DescriptionActivity</string>
     <string name="title_activity_nextofkin">NextofkinActivity</string>
 
+    <string name="loading">Loading…</string>
+    <string name="log_error_occurred">"Error occurred: "</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="web_client_id">321587843423-v82im1ne9m2ifuandq4dfl267udfr9sl.apps.googleusercontent.com</string>
+
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
@@ -26,4 +33,13 @@
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
+    <string name="service_not_available">Service is not available </string>
+    <string name="invalid_lat_long_used">Wrong latitude</string>
+    <string name="no_address_found">No address found</string>
+    <string name="address_found">Address found</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email add.</string>
+    <string name="err_msg_name">Enter full name</string>
+    <string name="err_msg_email">Enter valid email address</string>
+    <string name="title_activity_chat_room_discussion">Discussion</string>
 </resources>

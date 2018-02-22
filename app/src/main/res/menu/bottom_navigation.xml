@@ -7,13 +7,18 @@
 		android:title="Home"/>
 
 	<item
-		android:id="@+id/action_bag"
-		android:icon="@drawable/ic_people_black_24dp"
-		android:title="Emergency Contact"/>
+		android:id="@+id/action_chat"
+		android:icon="@drawable/ic_chat_black_24dp"
+		android:title="Chat"/>
 
 	<item
-		android:id="@+id/action_account"
+		android:id="@+id/action_bag"
 		android:icon="@drawable/ic_account_box_black_24dp"
 		android:title="Account"/>
+
+	<!--<item
+		android:id="@+id/action_account"
+		android:icon="@drawable/ic_account_box_black_24dp"
+		android:title="Account"/>-->
 
 </menu>

@@ -10,14 +10,14 @@
     app:rb_scale="7">
 
 
-    <!--ImageView used to display user's profile picture only-->
+
     <ImageView
-        android:id="@+id/profileImage"
+        android:id="@+id/panicbutton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:onClick="clickme"
         android:layout_centerInParent="true"
-        android:src="@drawable/phone" />
+        android:src="@drawable/nisaidie" />
 
 
 </com.nisaidie.nisaidie1.animation.RippleAnimation>

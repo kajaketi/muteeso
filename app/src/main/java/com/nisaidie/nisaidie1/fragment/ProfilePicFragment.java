@@ -22,6 +22,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProfilePicFragment extends AppCompatActivity {
 
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
@@ -41,7 +43,8 @@ public class ProfilePicFragment extends AppCompatActivity {
                 selectImage();
             }
         });
-        profileImage = (ImageView) findViewById(R.id.profilePic);
+        profileImage = (CircleImageView) findViewById(R.id.profilePic);
+
     }
 
     @Override
@@ -120,8 +123,9 @@ public class ProfilePicFragment extends AppCompatActivity {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
 
-        File destination = new File(Environment.getExternalStorageDirectory(),
+        File destination = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/nisaidie/",
                 System.currentTimeMillis() + ".jpg");
+
 
         FileOutputStream fo;
         try {
