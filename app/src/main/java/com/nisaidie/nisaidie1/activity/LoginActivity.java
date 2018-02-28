@@ -119,7 +119,7 @@ private ProgressDialog progressDialog;
 
                     //Validate form
                     if(phone.trim().length()>=10){
-                        Intent intent = new Intent(LoginActivity.this,ParentActivity.class);
+                        Intent intent = new Intent(LoginActivity.this,EmContactAdd.class);
                         startActivity(intent);
 
                     }else {
@@ -133,7 +133,7 @@ private ProgressDialog progressDialog;
         } else {
             // handle the value
 
-            Intent intent = new Intent(LoginActivity.this,ParentActivity.class);
+            Intent intent = new Intent(LoginActivity.this, ParentActivity.class);
             startActivity(intent);
         }
 

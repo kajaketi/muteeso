@@ -44,6 +44,7 @@
             android:background="@android:color/holo_red_dark"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
+            android:visibility="visible"
             android:text="Back"
             android:textAllCaps="false"
             android:textColor="#fff"

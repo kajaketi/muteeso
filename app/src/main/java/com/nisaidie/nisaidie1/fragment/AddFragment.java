@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nisaidie.nisaidie1.R;
+import com.nisaidie.nisaidie1.activity.ViewEmergencyContacts;
 import com.nisaidie.nisaidie1.databinding.EmergencyMainBinding;
 
 
@@ -31,7 +32,7 @@ public class AddFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view) {
 
-               Fragment fragment = null;
+               /*Fragment fragment = null;
                 fragment = new AccountFragment();
                // FragmentManager manager = getSupportFragmentManager();
                 FragmentManager manager = getActivity().getSupportFragmentManager();
@@ -39,7 +40,10 @@ public class AddFragment extends Fragment implements View.OnClickListener{
                 //transaction.show(fragment);
                 transaction.replace(R.id.emmain, fragment);
                 transaction.commit();
-                //startActivity(new Intent(getActivity(), com.nisaidie.nisaidie1.fragment.AccountFragment.class));
+                //startActivity(new Intent(getActivity(), com.nisaidie.nisaidie1.fragment.AccountFragment.class));*/
+
+                Intent intent = new Intent(getActivity(), ViewEmergencyContacts.class);
+                startActivity(intent);
             }
         });
 

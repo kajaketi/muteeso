@@ -1,9 +1,9 @@
-/*
 
 package com.nisaidie.nisaidie1.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -26,8 +27,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.nisaidie.nisaidie1.R;
+import com.nisaidie.nisaidie1.util.SharedPrefManager;
 
 import java.util.concurrent.TimeUnit;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PhoneAuthActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -354,7 +358,7 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
             mVerificationField.setText(null);
 
             mStatusText.setText(R.string.signed_in);
-            mDetailText.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+           // mDetailText.setText(getString(R.string.firebase_status_fmt, user.getUid()));
         }
     }
 
@@ -408,4 +412,3 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         }
     }
 }
-*/

@@ -6,6 +6,7 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_description">DescriptionActivity</string>
     <string name="title_activity_nextofkin">NextofkinActivity</string>
+    <string name="firebase_url">https://nisaidieapp-73ade.firebaseio.com/</string>
 
     <string name="loading">Loading…</string>
     <string name="log_error_occurred">"Error occurred: "</string>
@@ -42,4 +43,42 @@
     <string name="err_msg_name">Enter full name</string>
     <string name="err_msg_email">Enter valid email address</string>
     <string name="title_activity_chat_room_discussion">Discussion</string>
+
+    <string name="emfirstname">First Name:</string>
+    <string name="emlastname">Last Name:</string>
+    <string name="emprimcontact">Primary Contact:</string>
+    <string name="emothercontact">Other Contact:</string>
+    <string name="emaddress">Address:</string>
+    <string name="emrelationship">Relationship:</string>
+
+    <string name="showemfirstname">Show First Name</string>
+    <string name="showemlastname">Show Last Name</string>
+    <string name="showemprimcontact">Show Primary Contact</string>
+    <string name="showemothercontact">Show Other Contact</string>
+    <string name="showemaddress">Show Address</string>
+    <string name="showemrelationship">Show Relationship</string>
+    <string name="title_activity_nisaidie_maps">Map</string>
+
+    <string name="label_phone_auth">Phone Number Authentication</string>
+    <string name="desc_phone_auth">Use a phone number to authenticate with Firebase.</string>
+    <string name="phone_title_text">Phone Number</string>
+    <string name="desc_firebase_lockup">Firebase logo and name</string>
+    <string name="auth_failed">Authentication failed</string>
+    <string name="start_phone_auth">Start</string>
+    <string name="verify_phone_auth">Verify</string>
+    <string name="resend_phone_auth">Resend</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_verification_code">Verification Code</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="status_code_sent">Code Sent</string>
+    <string name="status_verification_failed">Verification failed</string>
+    <string name="status_verification_succeeded">Verification succeeded</string>
+    <string name="status_sign_in_failed">Sign-in failed</string>
+    <string name="instant_validation">(instant validation)</string>
+    <string name="signed_in">Signed In</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
+    <string name="firebase_user_management">Firebase User Management</string>
+
+
 </resources>

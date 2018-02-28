@@ -283,10 +283,7 @@ public class HomeFragment extends Fragment implements PictureCapturingListener, 
         dialog.show();
     }
 
-
-
-
-    public void doRippleBackground() {
+   public void doRippleBackground() {
 
         startAnimation();
 
@@ -298,7 +295,6 @@ public class HomeFragment extends Fragment implements PictureCapturingListener, 
                 callCardStack();
             }
         }, 500000);
-
     }
 
 
@@ -322,7 +318,6 @@ public class HomeFragment extends Fragment implements PictureCapturingListener, 
         rippleBackground1.setVisibility(View.GONE);
 
         stopAnimation();//start the ripple background animation.
-
     }
 
     private void callDialogFragment() {

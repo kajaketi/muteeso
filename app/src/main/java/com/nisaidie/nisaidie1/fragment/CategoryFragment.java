@@ -37,8 +37,21 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.nisaidie.nisaidie1.R;
+import com.nisaidie.nisaidie1.activity.EmContactAdd;
+import com.nisaidie.nisaidie1.activity.ViewEmergencyContacts;
 import com.nisaidie.nisaidie1.adapters.Adapter;
+import com.nisaidie.nisaidie1.adapters.EmContactViewAdapter;
+import com.nisaidie.nisaidie1.helper.EmContactsDetails;
+import com.nisaidie.nisaidie1.helper.EmDetailsThree;
+import com.nisaidie.nisaidie1.helper.EmDetailsTwo;
 import com.nisaidie.nisaidie1.services.GoogleService;
 
 import java.io.IOException;
@@ -51,6 +64,11 @@ import java.util.Locale;
  */
 public class CategoryFragment extends DialogFragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
+    //loading the phone numbers in a list
+    List<EmContactsDetails> list = new ArrayList<>();
+    List<EmDetailsTwo> listtwo = new ArrayList<>();
+    List<EmDetailsThree> listthree = new ArrayList<>();
+    String emContactOne, emContactTwo, emContactThree;
     //trial location vars
     private static final String TAG = "HomeFragment";
     private GoogleApiClient mGoogleApiClient;
@@ -142,7 +160,6 @@ public class CategoryFragment extends DialogFragment implements GoogleApiClient.
 
         new CategoryLoader().execute();
 
-
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -151,6 +168,50 @@ public class CategoryFragment extends DialogFragment implements GoogleApiClient.
 
         locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
         checkLocation();
+
+        //NOW WE WANT TO GET THE PRIMARY CONTACTS FROM FIREBASE
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(EmContactAdd.Database_Path).child(uid);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                    EmContactsDetails emContactsDetails = dataSnapshot.getValue(EmContactsDetails.class);
+                    list.add(emContactsDetails);
+                    emContactOne = emContactsDetails.getPrimaryPhone();
+                    emContactOne.toString();
+
+                    EmDetailsTwo emDetailsTwo = dataSnapshot.getValue(EmDetailsTwo.class);
+                    listtwo.add(emDetailsTwo);
+                    emContactTwo = emDetailsTwo.getPrimaryPhone();
+                    emContactTwo.toString();
+
+                    EmDetailsThree emDetailsThree = dataSnapshot.getValue(EmDetailsThree.class);
+                    listthree.add(emDetailsThree);
+                    emContactThree = emDetailsThree.getPrimaryPhone();
+                    emContactThree.toString();
+
+                 //   EmContactViewAdapter watr = new EmContactViewAdapter(getContext(), list);
+                    //think of referencing this here.
+                //    watr.onBindViewHolder(watr);
+
+                }
+
+             //   adapter = new EmContactViewAdapter(ViewEmergencyContacts.this, list);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        });
 
         return rootView;
     }
@@ -360,11 +421,13 @@ public class CategoryFragment extends DialogFragment implements GoogleApiClient.
           //  String city = mLocation.
 
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("+256775075211", null, message+" At Lat. Cordinates"+latitu+" & Long cordinates"+longi+" on"+cityName+" in "+stateName+" city"+", "+countryName, null, null);
+            smsManager.sendTextMessage(emContactOne, null, message+" At Lat. Cordinates"+latitu+" & Long cordinates"+longi+" on "+cityName+" in "+stateName+" city"+", "+countryName, null, null);
+            smsManager.sendTextMessage(emContactTwo, null, message+" At Lat. Cordinates"+latitu+" & Long cordinates"+longi+" on "+cityName+" in "+stateName+" city"+", "+countryName, null, null);
+            smsManager.sendTextMessage(emContactThree, null, message+" At Lat. Cordinates"+latitu+" & Long cordinates"+longi+" on "+cityName+" in "+stateName+" city"+", "+countryName, null, null);
             Toast.makeText(getActivity(), "SMS sent.",
                     Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(getActivity(), "xxxxLocation not Detected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "xxxx Location not Detected", Toast.LENGTH_SHORT).show();
         }
         //end of on connected
 

@@ -68,7 +68,7 @@ public class ParentActivity extends AppCompatActivity{
         IntentFilter myFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
         myFilter.addAction(Intent.ACTION_SCREEN_ON);
         BroadcastReceiver mReceiver = new KeyLauncher();
-        registerReceiver(mReceiver, myFilter);
+//        registerReceiver(mReceiver, myFilter);
 
     }
 
