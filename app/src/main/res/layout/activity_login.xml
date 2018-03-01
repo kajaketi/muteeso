@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="56dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:layout_gravity="center">
+        android:paddingTop="10dp"
+        android:gravity="center_vertical">
 
         <android.support.design.widget.NavigationView
             android:id="@+id/navigation_view"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:headerLayout="@layout/nav_header"
-            android:foregroundGravity="center"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:headerLayout="@layout/nav_header" />
+        <TextView
+            android:id="@+id/details_text_field"
+            style="@style/ThemeOverlay.MyTextDetail"
+            android:layout_gravity="center_horizontal"
+            tools:text="Phone Number Verification" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/submitting_phone_number"
+            android:visibility="visible">
 
         <!-- Phone number Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center_horizontal">
             <EditText
                 android:id="@+id/input_phone"
                 android:layout_width="match_parent"
@@ -35,23 +46,67 @@
                 android:inputType="phone"
                 android:hint="Phone Number" />
         </android.support.design.widget.TextInputLayout>
-
         <Button
             android:id="@+id/btn_login"
+            android:theme="@style/ThemeOverlay.MyDarkButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:padding="12dp"
-            android:text="Login"/>
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:text="Submit"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/verification_field_and_buttons"
+            android:visibility="invisible">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_gravity="center_horizontal">
+        <EditText
+            android:id="@+id/verification_code_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_verification_code"
+            android:inputType="number"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="2.0">
+
+            <Button
+                android:theme="@style/ThemeOverlay.MyDarkButton"
+                android:id="@+id/button_verify_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/verify_phone_auth"/>
+
+            <Button
+                android:theme="@style/ThemeOverlay.MyDarkButton"
+                android:id="@+id/button_resend_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/resend_phone_auth"/>
+        </LinearLayout>
+
+        </LinearLayout>
 
         <ImageView android:src="@drawable/nisaidie"
-            android:layout_width="wrap_content"
+            android:paddingTop="2dp"
+            android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal" />
-
-
-
     </LinearLayout>
 </ScrollView>

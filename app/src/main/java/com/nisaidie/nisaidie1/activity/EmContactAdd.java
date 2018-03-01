@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,11 @@ import android.widget.Toast;
 import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.nisaidie.nisaidie1.R;
 import com.nisaidie.nisaidie1.helper.EmContactsDetails;
 import com.nisaidie.nisaidie1.helper.EmDetailsThree;
@@ -35,6 +39,7 @@ import com.nisaidie.nisaidie1.session.EmPrefManager;
 
 public class EmContactAdd extends AppCompatActivity implements TextWatcher {
 
+    int emCount = 0;
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private int[] layouts;
@@ -53,7 +58,7 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
     // Root Database Name for Firebase Database.
     public static final String Database_Path = "Em_Contact_Details_Database";
 
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //check is it is the first time to launch this activity
@@ -62,6 +67,8 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
             launchHomeScreen();
             finish();
         }
+        //let us check if user has em contacts already
+
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
@@ -69,8 +76,6 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
 
         Firebase.setAndroidContext(EmContactAdd.this);
         myFirebase = new Firebase(FIREBASE_SERVER_URL);
-
-
 
         setContentView(R.layout.activity_emergency_contacts);
         viewPager = (ViewPager)findViewById(R.id.em_view_pager);
@@ -130,6 +135,7 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
                     pushRefOne.setValue(emContactsDetails);
 
 
+
                 } else if (current == 2) { //secondone
                     //second record
 
@@ -147,6 +153,7 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
                     String pushIdTwo = pushRefTwo.getKey();
                     emDetailsTwo.setPushId(pushIdTwo);
                     pushRefTwo.setValue(emDetailsTwo);
+
 
 
                 } else if (current == 3) { //last one
@@ -168,10 +175,19 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
                     emDetailsThree.setPushId(pushIdThree);
                     pushRefThree.setValue(emDetailsThree);
 
+                   /* myDatabaseReference.addValueEventListener(new ValueEventListener() {
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            int count = (int) dataSnapshot.getChildrenCount();
+                            emCount = count;
+                            // TODO: show the count in the UI
+                        }
+                        public void onCancelled(DatabaseError databaseError) { }
+                    });*/
+
+
                     // Showing Toast message after successfully data submit.
                     //Toast.makeText(EmContactAdd.this,"Data Inserted Successfully into Nisaidie Database", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
@@ -181,6 +197,23 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
 
                 Intent intent = new Intent(EmContactAdd.this, ViewEmergencyContacts.class);
                 startActivity(intent);
+            }
+        });
+
+    }
+
+    public void Count() {
+        myDatabaseReference.child("a").child("b").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    emCount = (int) dataSnapshot.getChildrenCount();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
