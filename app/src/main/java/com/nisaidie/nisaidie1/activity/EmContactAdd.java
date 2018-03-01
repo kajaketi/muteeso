@@ -133,7 +133,7 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
                     String pushIdOne = pushRefOne.getKey();
                     emContactsDetails.setPushId(pushIdOne);
                     pushRefOne.setValue(emContactsDetails);
-
+                    Count();
 
 
                 } else if (current == 2) { //secondone
@@ -153,7 +153,7 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
                     String pushIdTwo = pushRefTwo.getKey();
                     emDetailsTwo.setPushId(pushIdTwo);
                     pushRefTwo.setValue(emDetailsTwo);
-
+                    Count();
 
 
                 } else if (current == 3) { //last one
@@ -174,6 +174,7 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
                     String pushIdThree = pushRefThree.getKey();
                     emDetailsThree.setPushId(pushIdThree);
                     pushRefThree.setValue(emDetailsThree);
+                    Count();
 
                    /* myDatabaseReference.addValueEventListener(new ValueEventListener() {
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -190,6 +191,7 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
                 }
             }
         });
+        
 
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,8 +204,8 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
 
     }
 
-    public void Count() {
-        myDatabaseReference.child("a").child("b").addValueEventListener(new ValueEventListener() {
+    public int Count() {
+        myDatabaseReference.child("Em_Contact_Details_Database").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -216,6 +218,8 @@ public class EmContactAdd extends AppCompatActivity implements TextWatcher {
 
             }
         });
+
+        return emCount;
 
     }
 
